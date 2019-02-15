@@ -1,0 +1,9 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<item>
+    <shape android:shape="rectangle">
+        <solid android:color="@color/materialSwitchBackground"></solid>
+        <corners android:radius="30dp"></corners>
+        <size android:width="@dimen/materialSwitchOutlineWidth" android:height="@dimen/materialSwitchOutlineHeight"></size>
+    </shape>
+</item>
+</layer-list>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="materialSwitchBackgroundHeight">16dp</dimen>
+    <dimen name="materialSwitchBackgroundWidth">35dp</dimen>
+    <dimen name="materialSwitchOutlineHeight">17dp</dimen>
+    <dimen name="materialSwitchOutlineWidth">36dp</dimen>
+    <dimen name="materialSwitchBallHeight">15dp</dimen>
+    <dimen name="materialSwitchBallMarginLeft">1dp</dimen>
+</resources>
