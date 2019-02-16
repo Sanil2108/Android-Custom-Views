@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_weight="1"-->
+        <!--android:id="@+id/loading_bar_container1"-->
+        <!--android:background="#ff6f60"-->
+        <!--android:layout_height="0dp">-->
+
+        <!--<sanilk.com.customviews.views.loading_bar1.LoadingBar-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:id="@+id/loading_bar1"-->
+            <!--app:mainColor="#e53935"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content">-->
+
+        <!--</sanilk.com.customviews.views.loading_bar1.LoadingBar>-->
+
+    <!--</RelativeLayout>-->
+
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/loading_bar2_container"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_weight="1"-->
+        <!--android:background="#ee98fb"-->
+        <!--android:layout_height="0dp">-->
+
+        <!--<sanilk.com.customviews.views.loading_bar1.LoadingBar-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:id="@+id/loading_bar2"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--app:mainColor="#ba68c8"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content">-->
+
+        <!--</sanilk.com.customviews.views.loading_bar1.LoadingBar>-->
+
+    <!--</RelativeLayout>-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/loading_bar3_container"
+        android:background="#8e99f3"
+        android:layout_height="0dp">
+
+        <sanilk.com.customviews.views.loading_bar1.LoadingBar
+            android:layout_centerVertical="true"
+            app:mainColor="#5c6bc0"
+            android:id="@+id/loading_bar3"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </sanilk.com.customviews.views.loading_bar1.LoadingBar>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

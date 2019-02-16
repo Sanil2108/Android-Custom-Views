@@ -18,6 +18,15 @@ public class MainActivity extends AppCompatActivity {
 
         mContext = this;
 
+        Button loadingBar1Button = findViewById(R.id.activity_main_loading_bar1);
+        loadingBar1Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, LoadingBarActivity.class);
+                startActivity(intent);
+            }
+        });
+
         Button materialSwitch = findViewById(R.id.activity_main_material_switch);
         materialSwitch.setOnClickListener(new View.OnClickListener() {
             @Override

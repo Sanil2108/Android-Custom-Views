@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#E0E0E0"></solid>
+            <padding android:left="2dp" android:right="2dp" android:bottom="2dp" android:top="2dp"></padding>
+            <corners android:radius="30dp"></corners>
+            <size android:width="@dimen/loadingBar1BackWidth" android:height="@dimen/loadingBar1BackHeight"></size>
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#E8E8E8"></solid>
+            <corners android:radius="30dp"></corners>
+            <size android:width="@dimen/loadingBar1BackWidth" android:height="@dimen/loadingBar1BackHeight"></size>
+            <padding android:top="2dp" android:bottom="2dp" android:right="2dp" android:left="2dp"></padding>
+        </shape>
+    </item>
+
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#F0F0F0"></solid>
+            <padding android:left="2dp" android:right="2dp" android:bottom="2dp" android:top="2dp"></padding>
+            <corners android:radius="30dp"></corners>
+            <size android:width="@dimen/loadingBar1BackWidth" android:height="@dimen/loadingBar1BackHeight"></size>
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#F5F5F5"></solid>
+            <padding android:left="2dp" android:right="2dp" android:bottom="2dp" android:top="2dp"></padding>
+            <corners android:radius="30dp"></corners>
+            <size android:width="@dimen/loadingBar1BackWidth" android:height="@dimen/loadingBar1BackHeight"></size>
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#F8F8F8"></solid>
+            <padding android:left="2dp" android:right="2dp" android:bottom="2dp" android:top="2dp"></padding>
+            <corners android:radius="30dp"></corners>
+            <size android:width="@dimen/loadingBar1BackWidth" android:height="@dimen/loadingBar1BackHeight"></size>
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#fff"></solid>
+            <padding android:left="2dp" android:right="2dp" android:bottom="2dp" android:top="2dp"></padding>
+            <corners android:radius="30dp"></corners>
+            <size android:width="@dimen/loadingBar1BackWidth" android:height="@dimen/loadingBar1BackHeight"></size>
+        </shape>
+    </item>
+</layer-list>

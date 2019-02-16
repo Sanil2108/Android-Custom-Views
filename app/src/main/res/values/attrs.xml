@@ -5,4 +5,9 @@
         <attr name="endColor" format="color"></attr>
     </declare-styleable>
 
+
+    <declare-styleable name="LoadingBar">
+        <attr name="mainColor" format="color"></attr>
+    </declare-styleable>
+
 </resources>

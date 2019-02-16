@@ -7,5 +7,7 @@
     <!-- Material switch colors -->
     <color name="materialSwitchBackground">#aaa</color>
 
+    <color name="loadingBar1Background">#aaa</color>
+
 
 </resources>

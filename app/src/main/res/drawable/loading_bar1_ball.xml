@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <solid android:color="#e53935"></solid>
+    <corners android:radius="50dp"></corners>
+    <size android:height="@dimen/loadingBar1BallHeight" android:width="@dimen/loadingBar1BallWidth"></size>
+
+</shape>

@@ -2,8 +2,14 @@
 <resources>
     <dimen name="materialSwitchBackgroundHeight">16dp</dimen>
     <dimen name="materialSwitchBackgroundWidth">35dp</dimen>
-    <dimen name="materialSwitchOutlineHeight">17dp</dimen>
-    <dimen name="materialSwitchOutlineWidth">36dp</dimen>
+    <dimen name="materialSwitchOutlineHeight">19dp</dimen>
+    <dimen name="materialSwitchOutlineWidth">38dp</dimen>
     <dimen name="materialSwitchBallHeight">15dp</dimen>
     <dimen name="materialSwitchBallMarginLeft">1dp</dimen>
+
+    <dimen name="loadingBar1BackHeight">15dp</dimen>
+    <dimen name="loadingBar1BackWidth">187dp</dimen>
+    <dimen name="loadingBar1BallHeight">25dp</dimen>
+    <dimen name="loadingBar1BallWidth">62dp</dimen>
+    <dimen name="loadingBar1BallMarginLeft">5dp</dimen>
 </resources>
