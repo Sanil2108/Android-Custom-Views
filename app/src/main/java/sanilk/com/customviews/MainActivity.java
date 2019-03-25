@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import sanilk.com.customviews.views.bubble_image_view.BubbleImageView;
+
 public class MainActivity extends AppCompatActivity {
 
     private Context mContext;
@@ -33,6 +35,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(mContext, MaterialSwitchActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button bubbleImageView = findViewById(R.id.activity_main_bubble_image_view);
+        bubbleImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(mContext, BubbleImageViewActivity.class);
                 startActivity(intent);
             }
         });

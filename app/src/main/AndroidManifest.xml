@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MaterialSwitchActivity" />
-        <activity android:name=".LoadingBarActivity"></activity>
+        <activity android:name=".LoadingBarActivity" />
+        <activity android:name=".BubbleImageViewActivity"></activity>
     </application>
 
 </manifest>
