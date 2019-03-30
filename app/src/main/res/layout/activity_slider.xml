@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:clipChildren="false"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <sanilk.com.customviews.views.slider.Slider
+        android:layout_width="match_parent"
+        android:id="@+id/slider"
+        android:layout_height="match_parent"></sanilk.com.customviews.views.slider.Slider>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/activity_slider_left_slide"
+            android:text="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/activity_slider_right_slide"
+            android:text="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

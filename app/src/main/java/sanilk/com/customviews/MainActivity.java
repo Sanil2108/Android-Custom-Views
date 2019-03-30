@@ -48,5 +48,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button sliderButton = findViewById(R.id.activity_main_slider);
+        sliderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, SliderActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
