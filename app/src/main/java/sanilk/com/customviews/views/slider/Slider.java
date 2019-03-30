@@ -4,7 +4,11 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.os.Build;
+import android.support.v4.widget.ImageViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +18,17 @@ import android.widget.RelativeLayout;
 import sanilk.com.customviews.R;
 
 public class Slider extends RelativeLayout {
+
+    private int setColor;
+    private int unsetColor;
+
+    private int setRed = 244;
+    private int setGreen = 67;
+    private int setBlue = 54;
+
+    private int unsetRed = 150;
+    private int unsetGreen = 150;
+    private int unsetBlue = 150;
 
     private Context mContext;
 
@@ -56,6 +71,9 @@ public class Slider extends RelativeLayout {
 
         int leftMarginCounter = 0;
 
+        setColor = Color.argb(255, setRed, setGreen, setBlue);
+        unsetColor = Color.argb(255, unsetRed, unsetGreen, unsetBlue);
+
         for (int i=0;i<count;i++) {
             leftMarginCounter += 20;
 
@@ -97,6 +115,17 @@ public class Slider extends RelativeLayout {
 
                 leftMarginCounter += expandedSize;
 
+                if(Build.VERSION.SDK_INT >= 21) {
+                    leftBall.setImageTintList(ColorStateList.valueOf(setColor));
+                    rightBall.setImageTintList(ColorStateList.valueOf(setColor));
+                    centerRect.setImageTintList(ColorStateList.valueOf(setColor));
+                }else {
+                    ImageViewCompat.setImageTintList(leftBall, ColorStateList.valueOf(setColor));
+                    ImageViewCompat.setImageTintList(rightBall, ColorStateList.valueOf(setColor));
+                    ImageViewCompat.setImageTintList(centerRect, ColorStateList.valueOf(setColor));
+                }
+
+
             }else{
                 layoutParams.width = shrinkedSize;
 
@@ -109,6 +138,16 @@ public class Slider extends RelativeLayout {
                 rightLayoutParams.leftMargin = 0;
 
                 leftMarginCounter += shrinkedSize;
+
+                if(Build.VERSION.SDK_INT >= 21) {
+                    leftBall.setImageTintList(ColorStateList.valueOf(unsetColor));
+                    rightBall.setImageTintList(ColorStateList.valueOf(unsetColor));
+                    centerRect.setImageTintList(ColorStateList.valueOf(unsetColor));
+                }else {
+                    ImageViewCompat.setImageTintList(leftBall, ColorStateList.valueOf(unsetColor));
+                    ImageViewCompat.setImageTintList(rightBall, ColorStateList.valueOf(unsetColor));
+                    ImageViewCompat.setImageTintList(centerRect, ColorStateList.valueOf(unsetColor));
+                }
             }
 
             leftBall.setLayoutParams(leftLayoutParams);
@@ -124,6 +163,39 @@ public class Slider extends RelativeLayout {
         mRightValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
+                // Update the color of the previously expanded view
+                int tempColor = Color.argb(
+                        255,
+                        (int)((animation.getAnimatedFraction()) * (unsetRed - setRed) + setRed),
+                        (int)((animation.getAnimatedFraction()) * (unsetGreen - setGreen) + setGreen),
+                        (int)((animation.getAnimatedFraction()) * (unsetBlue - setBlue) + setBlue)
+                );
+                if(Build.VERSION.SDK_INT >= 21) {
+                    ((ImageView)(mViews[enabledId].findViewById(R.id.slider_ball_image_right))).setImageTintList(ColorStateList.valueOf(tempColor));
+                    ((ImageView)(mViews[enabledId].findViewById(R.id.slider_ball_image_left))).setImageTintList(ColorStateList.valueOf(tempColor));
+                    ((ImageView)(mViews[enabledId].findViewById(R.id.slider_ball_image_rect))).setImageTintList(ColorStateList.valueOf(tempColor));
+                }else {
+                    ImageViewCompat.setImageTintList((ImageView)(mViews[enabledId].findViewById(R.id.slider_ball_image_right)), ColorStateList.valueOf(tempColor));
+                    ImageViewCompat.setImageTintList((ImageView)(mViews[enabledId].findViewById(R.id.slider_ball_image_rect)), ColorStateList.valueOf(tempColor));
+                    ImageViewCompat.setImageTintList((ImageView)(mViews[enabledId].findViewById(R.id.slider_ball_image_left)), ColorStateList.valueOf(tempColor));
+                }
+
+                int tempColor2 = Color.argb(
+                        255,
+                        (int)((animation.getAnimatedFraction()) * (setRed - unsetRed) + unsetRed),
+                        (int)((animation.getAnimatedFraction()) * (setGreen - unsetGreen) + unsetGreen),
+                        (int)((animation.getAnimatedFraction()) * (setBlue - unsetBlue) + unsetBlue)
+                );
+                if(Build.VERSION.SDK_INT >= 21) {
+                    ((ImageView)(mViews[enabledId+1].findViewById(R.id.slider_ball_image_right))).setImageTintList(ColorStateList.valueOf(tempColor2));
+                    ((ImageView)(mViews[enabledId+1].findViewById(R.id.slider_ball_image_left))).setImageTintList(ColorStateList.valueOf(tempColor2));
+                    ((ImageView)(mViews[enabledId+1].findViewById(R.id.slider_ball_image_rect))).setImageTintList(ColorStateList.valueOf(tempColor2));
+                }else {
+                    ImageViewCompat.setImageTintList((ImageView)(mViews[enabledId+1].findViewById(R.id.slider_ball_image_right)), ColorStateList.valueOf(tempColor2));
+                    ImageViewCompat.setImageTintList((ImageView)(mViews[enabledId+1].findViewById(R.id.slider_ball_image_rect)), ColorStateList.valueOf(tempColor2));
+                    ImageViewCompat.setImageTintList((ImageView)(mViews[enabledId+1].findViewById(R.id.slider_ball_image_left)), ColorStateList.valueOf(tempColor2));
+                }
+
                 // Update the one to be enabled
                 RelativeLayout.LayoutParams toEnableRectLayoutParams = (RelativeLayout.LayoutParams) toEnableRect.getLayoutParams();
                 toEnableRectLayoutParams.width = (int) ( ( ((float)animation.getAnimatedValue()/100) * (expandedSize - shrinkedSize)) + 0);
@@ -160,9 +232,29 @@ public class Slider extends RelativeLayout {
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
 
+                if(Build.VERSION.SDK_INT >= 21) {
+                    ((ImageView)(mViews[enabledId].findViewById(R.id.slider_ball_image_right))).setImageTintList(ColorStateList.valueOf(unsetColor));
+                    ((ImageView)(mViews[enabledId].findViewById(R.id.slider_ball_image_left))).setImageTintList(ColorStateList.valueOf(unsetColor));
+                    ((ImageView)(mViews[enabledId].findViewById(R.id.slider_ball_image_rect))).setImageTintList(ColorStateList.valueOf(unsetColor));
+                }else {
+                    ImageViewCompat.setImageTintList((ImageView)(mViews[enabledId].findViewById(R.id.slider_ball_image_right)), ColorStateList.valueOf(unsetColor));
+                    ImageViewCompat.setImageTintList((ImageView)(mViews[enabledId].findViewById(R.id.slider_ball_image_rect)), ColorStateList.valueOf(unsetColor));
+                    ImageViewCompat.setImageTintList((ImageView)(mViews[enabledId].findViewById(R.id.slider_ball_image_left)), ColorStateList.valueOf(unsetColor));
+                }
+
                 enabledId = enabledId + 1;
 
                 sliding = false;
+
+                if(Build.VERSION.SDK_INT >= 21) {
+                    ((ImageView)(mViews[enabledId].findViewById(R.id.slider_ball_image_right))).setImageTintList(ColorStateList.valueOf(setColor));
+                    ((ImageView)(mViews[enabledId].findViewById(R.id.slider_ball_image_left))).setImageTintList(ColorStateList.valueOf(setColor));
+                    ((ImageView)(mViews[enabledId].findViewById(R.id.slider_ball_image_rect))).setImageTintList(ColorStateList.valueOf(setColor));
+                }else {
+                    ImageViewCompat.setImageTintList((ImageView)(mViews[enabledId].findViewById(R.id.slider_ball_image_right)), ColorStateList.valueOf(setColor));
+                    ImageViewCompat.setImageTintList((ImageView)(mViews[enabledId].findViewById(R.id.slider_ball_image_rect)), ColorStateList.valueOf(setColor));
+                    ImageViewCompat.setImageTintList((ImageView)(mViews[enabledId].findViewById(R.id.slider_ball_image_left)), ColorStateList.valueOf(setColor));
+                }
             }
         });
 
