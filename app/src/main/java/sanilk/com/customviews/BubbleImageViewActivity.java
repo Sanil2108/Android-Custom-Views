@@ -22,7 +22,7 @@ public class BubbleImageViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bubble_image_view);
 
         RelativeLayout root = findViewById(R.id.activity_bubble_image_view_root);
-        root.setClipChildren(false);
+//        root.setClipChildren(false);
 
         final BubbleImageView bubbleImageView = findViewById(R.id.activity_bubble_image_view_bubble);
 
